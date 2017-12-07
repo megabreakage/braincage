@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>css/custom.css">
 
     <link rel="stylesheet" href="<?php echo base_url() ?>css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/font-awesome.min.css">
 </head>
 <body>
 
@@ -94,7 +96,7 @@
                   <ul class="header--nav-links style--2 nav ff--primary">
                     <li><a href="<?php echo base_url() ?>"><span>Home</span></a></li>
                     <li><a href="<?php echo base_url() ?>about"><span>About us</span></a></li>
-                    <li><a href="<?php echo base_url() ?>membership"><span>Membership</span></a></li>                                        
+                    <li><a href="<?php echo base_url() ?>membership"><span>Membership</span></a></li>
                     <li><a href="<?php echo base_url() ?>auth/profile"><span>Profile</span></a></li>
                     <li><a href="<?php echo base_url() ?>auth/products"><span>Products</span></a></li>
                     <li><a href="<?php echo base_url() ?>forums"><span>News</span></a></li>
