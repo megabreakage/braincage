@@ -94,11 +94,11 @@
                   <ul class="header--nav-links style--2 nav ff--primary">
                     <li><a href="<?php echo base_url() ?>"><span>Home</span></a></li>
                     <li><a href="<?php echo base_url() ?>about"><span>About us</span></a></li>
-                    <li><a href="<?php echo base_url() ?>products/products"><span>Products</span></a></li>
-                    <li><a href="<?php echo base_url() ?>membership"><span>Membership</span></a></li>
+                    <li><a href="<?php echo base_url() ?>membership"><span>Membership</span></a></li>                                        
                     <li><a href="<?php echo base_url() ?>auth/profile"><span>Profile</span></a></li>
+                    <li><a href="<?php echo base_url() ?>auth/products"><span>Products</span></a></li>
                     <li><a href="<?php echo base_url() ?>forums"><span>News</span></a></li>
-                    <li><a href="<?php echo base_url() ?>pages/topics"><span>Current Topic</span></a></li>
+                    <li><a href="<?php echo base_url() ?>topics"><span>Current Topic</span></a></li>
                   </ul>
                   <!-- Header Nav Links End -->
               </div>

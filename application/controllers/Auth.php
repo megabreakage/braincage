@@ -3,8 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
 
-	public function login()
-	{
+	public function login() {
 
 		// form input validations
 		$this->form_validation->set_rules('username', 'Username', 'required');
@@ -85,6 +84,18 @@ class Auth extends CI_Controller {
 
 		$this->load->view('templates/header');
 		$this->load->view('auth/profile', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function products(){
+		$this->load->view('templates/header');
+		$this->load->view('auth/products');
+		$this->load->view('templates/footer');
+	}
+
+	public function product_details(){
+		$this->load->view('templates/header');
+		$this->load->view('auth/product_details');
 		$this->load->view('templates/footer');
 	}
 }
