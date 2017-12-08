@@ -30,6 +30,13 @@
             <input class="form-control" type="password" name="password" placeholder="*****">
           </div>
           <div class="form-group">
+            <select class="form-control" name="membership">
+              <option value="1">Parrot</option>
+              <option value="2">Peacock</option>
+              <option value="3">Peguin</option>
+            </select>
+          </div>
+          <div class="form-group">
             <input class="btn btn-primary" type="submit" name="Login">
           </div>
           <p>Hi Guest, <a href="<?php echo base_url() ?>auth/account">Register</a></p>

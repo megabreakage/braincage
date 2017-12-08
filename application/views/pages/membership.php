@@ -18,7 +18,7 @@
         <div class="container pt--60 pb--30">
           <div class="col-md-4 text-center pb--30">
             <div class="category">
-              <a href="#"><img src="img/parrot.png" alt=""></a>
+              <a href="auth/login"><img src="img/parrot.png" alt=""></a>
             </div>
             <h5>They don't contribute money</h5>
             <p class="fs--16">Benefits</p>
@@ -33,7 +33,7 @@
           </div>
           <div class="col-md-4 text-center pb--30">
             <div class="category">
-              <a href="#"><img src="img/peackock.png" alt=""></a>
+              <a href="auth/pea_register"><img src="img/peackock.png" alt=""></a>
             </div>
             <h5>They contribute finances</h5>
             <p class="fs--16">Benefits</p>
@@ -48,7 +48,7 @@
           </div>
           <div class="col-md-4 text-center pb--30">
             <div class="category">
-              <a href="#"><img src="img/penguin.png" alt=""></a>
+              <a href="auth/login"><img src="img/penguin.png" alt=""></a>
             </div>
             <h5>They nature talents</h5>
             <p class="fs--16">Benefits</p>

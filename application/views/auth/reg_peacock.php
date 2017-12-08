@@ -22,7 +22,7 @@
      </div>
      <?php } ?>
     <h5 class="text-center">Fill in your credentials to register with Braincage </h5>
-    <form action="<?php echo base_url() ?>" method="post">
+    <form action="<?php echo base_url() ?>auth/pesapal" method="post">
       <div class="col-md-6 form-group">
         <input class="form-control" type="text" name="fname" placeholder="First Name">
       </div>
@@ -73,7 +73,7 @@
       </div>
 
       <div class="col-md-12 text-center">
-        <input class="btn btn-primary" type="submit" name="register" value="Register">
+        <input class="btn btn-primary" type="submit" name="pea_register" value="Register">
       </div>
     </form>
   </div>
