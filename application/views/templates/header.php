@@ -58,15 +58,32 @@
               <!-- Header Topbar Social End -->
 
               <!-- Header Topbar Links Start -->
-              <ul class="header--topbar-links nav ff--primary float--right">
-                <li>
-                  <a href="<?php echo base_url() ?>auth/login" class="btn-link">
-                    <i class="fa mr--8 fa-user-o"></i>
-                    <span>My Account</span>
-                  </a>
-                  <a href="<?php echo base_url() ?>auth/logout" class="btn-link">Logout</a>
-                </li>
-              </ul>
+              <?php if (isset($_SESSION['user_logged']) == FALSE) {
+               ?>
+                <ul class="header--topbar-links nav ff--primary float--right">
+                  <li>
+                    <a href="<?php echo base_url() ?>auth/login" class="btn-link">
+                      <i class="fa mr--8 fa-user-o"></i>
+                      <span>Login</span>
+                    </a>
+                  </li>
+                </ul>
+              <?php
+              } else {
+               ?>
+               <ul class="header--topbar-links nav ff--primary float--right">
+                 <li>
+                   <a href="<?php echo base_url() ?>auth/profile" class="btn-link">
+                     <i class="fa mr--8 fa-user-o"></i>
+                     <span>Hi <?php $_SESSION['username']; ?>!</span>
+                   </a>
+                   <small><a href="<?php echo base_url() ?>auth/logout" class="btn-link"><i class="fa fa-times" aria-hidden="true"></i></a></small>
+                 </li>
+               </ul>
+              <?php
+              }
+               ?>
+
                 <!-- Header Topbar Links End -->
             </div>
           </div>
