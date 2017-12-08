@@ -1,4 +1,9 @@
 <!-- main view -->
+
+<?php if (isset($_SESSION['user_logged']) == FALSE) {
+  redirect("auth/login", "refresh");
+}else {
+   ?>
 <!-- Cover Header Start -->
 <div class="cover--header pt--80 text-center" data-bg-img="<?php echo base_url() ?>img/cover-header-img/bg-01.jpg" data-overlay="0.6" data-overlay-color="white">
     <div class="container">
@@ -170,3 +175,4 @@
     </div>
 </section>
 <!-- Page Wrapper End -->
+<?php } ?>

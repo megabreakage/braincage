@@ -8,10 +8,12 @@ class Auth_model extends CI_Model{
   public function login_user(){
     $username = $this->input->post('username');
     $password = md5($this->input->post('password'));
+    $membership = $this->input->post('membership');
 
     $query = $this->db->get_where('users',array(
       'username' => $username,
-      'password' => $password
+      'password' => $password,
+      'membership' => $membership
     ));
     $user = $query->row(); //used to select infor from a single row
     return $user;
@@ -30,6 +32,7 @@ class Auth_model extends CI_Model{
       'username' => $this->input->post('username'),
       'email' => $this->input->post('email'),
       'password' => md5($this->input->post('password')),
+      'membership' =>  $this->input->post('membership'),
       'date_created' => date('Y-m-d')
     );
 

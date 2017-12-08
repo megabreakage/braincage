@@ -40,8 +40,15 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/ac_type');
 	}
 
-	public function standard(){
+	public function sponsor(){
 
+		$this->register->reg_standard();
+
+		$this->load->view('templates/header');
+		$this->load->view('auth/standard');
+	}
+
+	public function standard(){
 		if(isset($_POST['register'])) {
 			//form inputs validations
 			$this->form_validation->set_rules('fname', 'first name', 'required');
@@ -56,58 +63,27 @@ class Auth extends CI_Controller {
 			$this->form_validation->set_rules('password', 'confirm password', 'required|min_length[5]|matches[password]');
 
 			if ($this->form_validation->run() == TRUE) {
+				if ($this->input->post('membership') == 2 || $this->input->post('membership') == 3) {
+					redirect("auth/pesapal", "refresh");
 
-				$this->auth_model->reg_standard();
-
-				$this->session->set_flashdata("success", "Your have been registered Successfully!");
+					$this->auth_model->reg_peacock();
+					$this->session->set_flashdata("success", "Your have been registered Successfully!");
+				} else {
+					$this->auth_model->reg_peacock();
+					$this->session->set_flashdata("success", "Your have been registered Successfully!");
+				}
 			}
 		}
 
-
 		$this->load->view('templates/header');
 		$this->load->view('auth/standard');
-	}
-
-	public function sponsor(){
-
-		$this->register->reg_standard();
-
-		$this->load->view('templates/header');
-		$this->load->view('auth/standard');
-	}
-
-	public function reg_peacock(){
-		if(isset($_POST['pea_register'])) {
-			//form inputs validations
-			$this->form_validation->set_rules('fname', 'first name', 'required');
-			$this->form_validation->set_rules('lname', 'last name', 'required');
-			$this->form_validation->set_rules('id_num', 'ID number', 'required');
-			$this->form_validation->set_rules('country', 'country', 'required');
-			$this->form_validation->set_rules('code', 'phone_code', 'required|max_length[3]');
-			$this->form_validation->set_rules('cell', 'phone number', 'required');
-			$this->form_validation->set_rules('username', 'username', 'required');
-			$this->form_validation->set_rules('email', 'email', 'required');
-			$this->form_validation->set_rules('password', 'password', 'required|min_length[5]');
-			$this->form_validation->set_rules('password', 'confirm password', 'required|min_length[5]|matches[password]');
-
-			if ($this->form_validation->run() == TRUE) {
-
-				$this->auth_model->reg_peacock();
-
-				$this->session->set_flashdata("success", "Your have been registered Successfully!");
-			}
-		}
-
-
-		$this->load->view('templates/header');
-		$this->load->view('auth/reg_peacock');
 	}
 
 	public function register(){
 		$this->load->view('templates/header');
 		$this->load->view('auth/register');
 	}
-	
+
 	public function pesapal(){
 		$this->load->view('templates/header');
 		$this->load->view('pesapal/pesapal');
@@ -132,5 +108,9 @@ class Auth extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('auth/product_details');
 		$this->load->view('templates/footer');
+	}
+	public function logout(){
+		unset($_SESSION['user_logged']);
+		redirect("auth/login", "refresh");
 	}
 }

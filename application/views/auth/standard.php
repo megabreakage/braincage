@@ -22,7 +22,7 @@
      </div>
      <?php } ?>
     <h5 class="text-center">Fill in your credentials to register with Braincage </h5>
-    <form action="<?php echo base_url() ?>" method="post">
+    <form action="" method="post">
       <div class="col-md-6 form-group">
         <input class="form-control" type="text" name="fname" placeholder="First Name">
       </div>
@@ -60,6 +60,13 @@
       </div>
       <div class="col-md-6 form-group">
         <input class="form-control" type="password" name="password" placeholder="confirm password">
+      </div>
+      <div class="col-md-8 form-group">
+        <select class="form-control" name="membership">
+          <option value="1">Parrot</option>
+          <option value="2">Peacock</option>
+          <option value="3">Penguin</option>
+        </select>
       </div>
       <div class="col-md-12">
         <label for="">Who introduced you to braincage?</label>

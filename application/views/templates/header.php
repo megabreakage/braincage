@@ -64,6 +64,7 @@
                     <i class="fa mr--8 fa-user-o"></i>
                     <span>My Account</span>
                   </a>
+                  <a href="<?php echo base_url() ?>auth/logout" class="btn-link">Logout</a>
                 </li>
               </ul>
                 <!-- Header Topbar Links End -->
