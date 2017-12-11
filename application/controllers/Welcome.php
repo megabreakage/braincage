@@ -7,6 +7,8 @@ class Welcome extends CI_Controller {
 
     $data['title'] = ucfirst($page);
 
+		$data['posts'] = $this->profile_model->get_posts();
+
     //load various views
 		$this->load->view('templates/header', $data );
 		$this->load->view('pages/'.$page, $data);
