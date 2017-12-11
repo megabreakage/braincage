@@ -23,6 +23,7 @@ class Auth extends CI_Controller {
         $_SESSION['username'] = $user->username; //to retrieve the a username for the next page
 				$_SESSION['id'] = $user->id;
 
+
         // redirect to profile page
         redirect("auth/profile", "refresh");
       }else {
@@ -92,24 +93,55 @@ class Auth extends CI_Controller {
 	}
 
 	public function profile(){
-		$data['fetch'] = $this->auth_model->fetch_data();
+		$data['fetch'] = $this->auth_model->get_profile();
 
 		$this->load->view('templates/header');
 		$this->load->view('auth/profile', $data);
 		$this->load->view('templates/footer');
 	}
 
+	public function send_message()	{
+		$message = $this->input->get('message', null);
+		$nickname = $this->input->get('nickname', '');
+		$guid = $this->input->get('guid', '');
+
+		$this->auth_model->add_message($message, $nickname, $guid);
+
+		$this->_setOutput($message);
+	}
+
+	public function get_messages()	{
+		$timestamp = $this->input->get('timestamp', null);
+
+		$messages = $this->auth_model->get_messages($timestamp);
+
+		$this->_setOutput($messages);
+	}
+
+	private function _setOutput($data)	{
+		header('Cache-Control: no-cache, must-revalidate');
+		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+		header('Content-type: application/json');
+
+		echo json_encode($data);
+	}
+
 	public function products(){
+		$data['products'] = $this->auth_model->get_products();
+
 		$this->load->view('templates/header');
-		$this->load->view('auth/products');
+		$this->load->view('auth/products', $data);
 		$this->load->view('templates/footer');
 	}
 
 	public function product_details(){
+		// $data['product'] = $this->auth_model->get_product();
+
 		$this->load->view('templates/header');
 		$this->load->view('auth/product_details');
 		$this->load->view('templates/footer');
 	}
+
 	public function logout(){
 		unset($_SESSION['user_logged']);
 		redirect("auth/login", "refresh");
