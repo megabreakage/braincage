@@ -55,4 +55,27 @@ class Profile_model extends CI_Model{
     // collect user inputs
   }
 
+  public function get_posts(){
+     $posts = $this->db->get_where('posts');
+     return $posts->row_array();
+  }
+
+  public function update_posts(){
+    $title = $this->input->post('title');
+    $subtitle = $this->input->post('sub_title');
+    $body = $this->input->post('body');
+    $date_posted = $this->input->post('date_posted');
+
+    // put the data in an array
+    $post_data = array(
+      'post_id' => $id,
+      'title' => $title,
+      'subtitle' => $subtitle,
+      'body' => $body,
+      'date_created' => $date_created
+     );
+
+     $this->db->update('posts', $id);
+  }
+
 } ?>
