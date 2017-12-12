@@ -57,7 +57,7 @@ class Profile_model extends CI_Model{
 
   public function get_posts(){
      $posts = $this->db->get_where('posts');
-     return $posts->row_array();
+     return $posts->result_array();
   }
 
   public function update_posts(){

@@ -1,7 +1,7 @@
 <!-- START -->
 
 <!-- Page Header Start -->
-<div class="page--header pt--60 pb--60 text-center" data-bg-img="img/page-header-img/bg.jpg" data-overlay="0.85">
+<div class="page--header pt--60 pb--60 text-center" data-bg-img="img/pagebg.jpg" data-overlay="0.85">
     <div class="container">
         <div class="title">
             <h2 class="h1 text-white">About Us</h2>
@@ -27,8 +27,7 @@
           <!-- Text Block Start -->
         <div class="text--block">
           <div class="content fs--20 text-center">
-            <h3>About Us</h3>
-            <p>Braincage is Designed by Kelvin and Established under the societies act</p>
+            <p>Braincage is Designed by Kelvin K. and Established under the societies act</p>
           </div>
         </div>
         <!-- Text Block End -->

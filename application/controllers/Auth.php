@@ -23,6 +23,15 @@ class Auth extends CI_Controller {
         $_SESSION['username'] = $user->username; //to retrieve the a username for the next page
 				$_SESSION['id'] = $user->id;
 
+				$newdata = array(
+					'fname' => $user->fname,
+					'username' => $user->username,
+					'lname' => $user->lname,
+					'user_id' => $user->id,
+					'user_email' => $user->email,
+				 );
+				$this->session->set_userdata($newdata);
+
 
         // redirect to profile page
         redirect("auth/profile", "refresh");
@@ -68,11 +77,15 @@ class Auth extends CI_Controller {
 				if ($this->input->post('membership') == 2 || $this->input->post('membership') == 3) {
 					redirect("auth/pesapal", "refresh");
 
-					$this->auth_model->reg_peacock();
+					$this->auth_model->reg_standard();
 					$this->session->set_flashdata("success", "Your have been registered Successfully!");
+					$this->logout();
+					redirect("auth/login", "refresh");
 				} else {
-					$this->auth_model->reg_peacock();
+					$this->auth_model->reg_standard();
 					$this->session->set_flashdata("success", "Your have been registered Successfully!");
+					$this->logout();
+					redirect("auth/login", "refresh");
 				}
 			}
 		}
@@ -93,7 +106,7 @@ class Auth extends CI_Controller {
 	}
 
 	public function profile(){
-		$data['fetch'] = $this->auth_model->get_profile();
+		$data['profile'] = $this->auth_model->get_profile();
 
 		$this->load->view('templates/header');
 		$this->load->view('auth/profile', $data);
@@ -134,11 +147,19 @@ class Auth extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function product_details(){
-		// $data['product'] = $this->auth_model->get_product();
+	public function product_details($product_id){
+		$product_id = $_SESSION['product_id'];
+		$data['product'] = $this->auth_model->get_product($product_id );
+
 
 		$this->load->view('templates/header');
-		$this->load->view('auth/product_details');
+		$this->load->view('auth/product_details', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function saf_api(){
+		$this->load->view('templates/header');
+		$this->load->view('auth/saf_api');
 		$this->load->view('templates/footer');
 	}
 

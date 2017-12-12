@@ -75,7 +75,7 @@
                  <li>
                    <a href="<?php echo base_url() ?>auth/profile" class="btn-link">
                      <i class="fa mr--8 fa-user-o"></i>
-                     <span>Hi <?php $_SESSION['username']; ?>!</span>
+                     <span>Hi <?php echo $this->session->userdata('fname'); ?>!</span>
                    </a>
                    <small><a href="<?php echo base_url() ?>auth/logout" class="btn-link"><i class="fa fa-times" aria-hidden="true"></i></a></small>
                  </li>

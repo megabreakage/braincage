@@ -40,7 +40,9 @@ class Auth_model extends CI_Model{
   }
 
   public function get_profile(){
-    $query = $this->db->get_where("occupation");
+    $query = $this->db->query(
+      'SELECT fname, lname, cell, monthname(dob) as month, year(dob) as year, username,
+      email, occupation, skills, bio FROM users WHERE id = ?', $this->session->userdata('user_id'));
     return $query->row_array();
   }
 
@@ -74,6 +76,10 @@ class Auth_model extends CI_Model{
        INNER JOIN products b ON a.category_id = b.category_id');
     $products = $query->result_array();
     return $products;
+  }
+
+  public function get_product($product_id){
+    // $this->db-get_where('products', $product_id);
   }
 
 } ?>

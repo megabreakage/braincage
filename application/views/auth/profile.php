@@ -1,4 +1,7 @@
 <!-- main view -->
+<div class="">
+  
+</div>
 
 <?php if (isset($_SESSION['user_logged']) == FALSE) {
   redirect("auth/login", "refresh");
@@ -12,8 +15,9 @@
         </div>
 
         <div class="cover--user-name">
-            <h2 class="h3 fw--600">Eileen K. Ruiz</h2>
+            <h2 class="h3 fw--600"><?php echo $profile['fname']; ?> <?php echo $profile['lname']; ?></h2>
         </div>
+        <!-- <?php echo $this->session->userdata('user_id'); ?> -->
 
         <div class="cover--user-activity">
             <p><i class="fa mr--8 fa-clock-o"></i>Active 1 year 9 monts ago</p>
@@ -61,19 +65,19 @@
                       <table class="table">
                           <tr>
                               <th class="fw--700 text-darkest">Full Name</th>
-                              <td><a href="#" class="btn-link">Eileen K. Ruiz</a></td>
+                              <td><a href="#" class="btn-link"><?php echo $profile['fname'] ?> <?php echo $profile['lname'] ?></a></td>
                           </tr>
                           <tr>
                               <th class="fw--700 text-darkest">Occupation</th>
-                              <td><?php echo $fetch['occupation']; ?></td>
+                              <td><?php echo $profile['occupation']; ?></td>
                           </tr>
                           <tr>
                               <th class="fw--700 text-darkest">Skill</th>
-                              <td>Graphic Design, Font-End Development, Web Development</td>
+                              <td><?php echo $profile['skills'] ?></td>
                           </tr>
                           <tr>
                               <th class="fw--700 text-darkest">Date of Birth</th>
-                              <td>19<sup>th</sup> January 2017</td>
+                              <td><?php echo $profile['month'] ?> <?php echo $profile['year'] ?></td>
                           </tr>
                       </table>
                   </div>
@@ -90,7 +94,7 @@
                   </div>
 
                   <div class="profile--info">
-                      <p>Hello ! I’m <a href="#">Eileen K. Ruiz</a>. Senior web developer of themelooks.com from last 5 years many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing</p>
+                      <p>Hello ! I’m <a href="#"><?php echo $profile['fname'] ?> <?php echo $profile['lname'] ?></a>. Senior <?php echo $profile['occupation'] ?> of themelooks.com from last 5 years many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing</p>
                   </div>
               </div>
               <!-- Profile Item End -->
@@ -148,11 +152,11 @@
                       <table class="table">
                           <tr>
                               <th class="fw--700 text-darkest">Phone</th>
-                              <td><a href="tel:+16105598246">+1610-559-8246</a></td>
+                              <td><a href="tel:+16105598246">+254<?php echo $profile['cell'] ?></a></td>
                           </tr>
                           <tr>
                               <th class="fw--700 text-darkest">E-mail</th>
-                              <td><a href="mailto:demo@fakemail.com">demo@example.com</a></td>
+                              <td><a href="mailto:demo@fakemail.com"><?php echo $profile['email'] ?></a></td>
                           </tr>
                           <tr>
                               <th class="fw--700 text-darkest">Website</th>
